@@ -9,6 +9,11 @@
 To create a `corewar` (virtual machine), `asm` (assembler) and `champion` (fighting program).  
 Four-person group project. `corewar` completed by [myself](https://github.com/davhojt) and [ffloris](https://github.com/fedefloris). `asm` completed by [mfiguera](https://github.com/mfigueras11) and [akaseris](https://github.com/akaseris).  
   
+The Corewar project is incredibly conplexed given our collective experience to date. We considered the following materials:
+- [42 Project](./corewar.en.pdf)
+- [Epitech Project](./images/corewar_en.pdf)
+- [Corewar Cheat Sheet](./images/Corewar_Cheat_Sheet.pdf) (French).
+  
 A `champion` is written in `assembly` syntax. A `champion` is compiled by the `asm` (assembler), into a binary file. The compiled `champion` is then loaded into `corewar` (virtual machine) as a process, with other `champion`s.  
   
 `corewar` will end after *some time* or when all the processes have died. The winner is the last `champion` to have been reported alive.  
