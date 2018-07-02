@@ -126,3 +126,105 @@ Allowed functions for the mandatory part are `open`, `read`, `lseek`, `write`, `
 ***
 ### Using the project
 To compile, run `make`. This will compile two programs; **asm** and **corewar**.
+##### asm
+For `usage`:
+```console
+$> ./asm
+Usage: ./asm <sourcefile.s> [dest path]
+```
+As standard, `asm` must take as an argument a `champion` with a '.s' file extention. If the `champion` is valid, it must comiled and a compiled '.cor' binary must be placed in the same directory and with the same filename as the `assembly` file. For example:
+```console
+$> ls champion/
+451.s
+$> ./asm champion/451.s
+Writing to champion/451.cor
+$> ls champion/
+451.cor 451.s
+```
+As a bonus feature, we allowed `asm` to take `dest path` as an argument to specify the destination of the compiled '.cor' binary. In the following example, we compile zork.s to the current directory.
+```console
+$> ls -l
+total 2904
+-rw-r--r--  1 Dav  staff     1856 29 Jun 12:38 Makefile
+-rw-r--r--  1 Dav  staff        9 20 Jun 06:53 README.md
+-rwxr-xr-x  1 Dav  staff    48124  2 Jul 20:22 asm
+drwxr-xr-x  7 Dav  staff      224  2 Jul 20:22 assembler
+-rw-r--r--  1 Dav  staff       32 20 Jun 06:53 author
+drwxr-xr-x  4 Dav  staff      128  2 Jul 22:30 champion
+-rwxr-xr-x  1 Dav  staff    58132  2 Jul 20:22 corewar
+-rw-r--r--@ 1 Dav  staff  1363780 29 Jun 12:38 corewar.en.pdf
+drwxr-xr-x  7 Dav  staff      224  2 Jul 20:22 libft
+drwxr-xr-x  6 Dav  staff      192 29 Jun 12:38 resources
+drwxr-xr-x  3 Dav  staff       96 29 Jun 12:38 shared
+drwxr-xr-x  8 Dav  staff      256  2 Jul 20:22 virtual_machine
+$> ./asm resources/champs/examples/zork.s .
+Writing to ./zork.cor
+$> ls -l
+total 2912
+-rw-r--r--  1 Dav  staff     1856 29 Jun 12:38 Makefile
+-rw-r--r--  1 Dav  staff        9 20 Jun 06:53 README.md
+-rwxr-xr-x  1 Dav  staff    48124  2 Jul 20:22 asm
+drwxr-xr-x  7 Dav  staff      224  2 Jul 20:22 assembler
+-rw-r--r--  1 Dav  staff       32 20 Jun 06:53 author
+drwxr-xr-x  4 Dav  staff      128  2 Jul 22:30 champion
+-rwxr-xr-x  1 Dav  staff    58132  2 Jul 20:22 corewar
+-rw-r--r--@ 1 Dav  staff  1363780 29 Jun 12:38 corewar.en.pdf
+drwxr-xr-x  7 Dav  staff      224  2 Jul 20:22 libft
+drwxr-xr-x  6 Dav  staff      192 29 Jun 12:38 resources
+drwxr-xr-x  3 Dav  staff       96 29 Jun 12:38 shared
+drwxr-xr-x  8 Dav  staff      256  2 Jul 20:22 virtual_machine
+-rw-r--r--  1 Dav  staff     2215  2 Jul 22:34 zork.cor
+```
+`asm` provides detailed error handling output in a similar fashion to `gcc`.
+```console
+$> ./asm champion/451.s
+Error: Invalid number of params for this operation at line 4
+	"		aff r1, r3"
+
+Error: Label requested not declared at line 5
+	"		sti r1, %:legal, %1"
+
+Error: Invalid character after operation name at line 8
+	"legal>:	live %1"
+
+Error: Label requested not declared at line 9
+	"		zjmp %:legal"
+```
+  
+##### corewar
+For `usage`:
+```console
+$> ./corewar
+_________                 ___       __
+__  ____/___________________ |     / /_____ ________
+_  /    _  __ \_  ___/  _ \_ | /| / /_  __ `/_  ___/
+/ /___  / /_/ /  /   /  __/_ |/ |/ / / /_/ /_  /
+\____/  \____/\/_/    \___/____/|__/  \___/ /_/
+                               VIRTUAL MACHINE
+
+
+USAGE
+> ./corewar [-a | -d | -x | -X] [[-dump | -debug] nbr_cycles] [[-n number] champion1.cor] ...
+
+
+FLAGS
+-a      Aff (Character with 256 modulo applied).
+-d      Aff (Displayed as decimal).
+-x      Aff (Displayed as hexidecimal (lower case)).
+-X      Aff (Displayed as hexidecimal (upper case)).
+
+-n      Player number selection.
+        Example: > ./corewar -n 42 tasos.cor -n 7 marti.cor
+        Corewar will auto-assign where no selection is made.
+
+-dump   Dump memory.
+        Example: > ./corewar -dump 27 dav.cor federico.cor
+        Here, Corewar will dump memory after 42 cycles.
+        Corewar can only accept 1 -dump argument.
+
+-debug  Debug Mode.
+        Example: > ./corewar -debug 27 dav.cor federico.cor
+        Dumps memory in animation mode for debug purposes.
+        Corewar does not accept Bitcoin Cash LOL.
+        Corewar can only accept 1 -debug argument.
+```
