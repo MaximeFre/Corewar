@@ -131,7 +131,11 @@ Allowed functions for the mandatory part are `open`, `read`, `lseek`, `write`, `
 ***
 ### Using the project
 To compile, run `make`. This will compile two programs; **asm** and **corewar**.
-##### asm
+##### asm  
+Our overall bonuses for `asm` are:  
+- The path at which the binary file is written to can be specified.
+- Error handling in a `gcc` fashion, with errors, parsed data, and line numbers (with colour).  
+  
 For `usage`:
 ```console
 $> ./asm
@@ -197,6 +201,13 @@ Error: Label requested not declared at line 9
 ```
   
 ##### corewar
+Our overall bonuses for `corewar` are:  
+- `debug` An accidental visualizer, to illustrate each cycle as an animation.
+- `-dump` illustrates the position of the program counter.
+- When the debugger is activated, a sound is played when a process is killed by `corewar`.
+- No `live` calls = no winners. Some `corewar` virtual machines arbitrarily choose a winner.
+- `aff` output. The standard, is to display a value with a modulo of 256 applied. We decided to allow alternative methods to display the value inside a register. See `usage`  
+  
 For `usage`:
 ```console
 $> ./corewar
@@ -238,3 +249,40 @@ FLAGS
   
 We created a debugger, which developped unintentionally into a visualizer. Its syntax is the same as -dump and will start the visualization from that cycle. **Note**, each time a process is killed, a sound will be played.  
 ![-debug](./images/corewar_debug.gif)
+  
+##### champion
+Within the scope of the project, we needed to submit one chammpion. There follows a seperate project, Corewar Champioinship. As such, we did not want to display our best `champion`s bcause we would loose our future competative edge.  
+  
+We made a `champion` named **451**. **451** was explicitly designed to beat **zork** in most circumstances.  
+451:
+```assembly
+.name "451"
+.comment "Unavailable For Legal Reasons"
+
+		aff r1
+		sti r1, %:legal, %1
+		and r1, %0, r1
+
+legal:	live %1
+		zjmp %:legal
+```
+zork:
+```assembly
+.name "zork"
+.comment "I'M ALIIIIVE"
+
+l2:		sti r1, %:live, %1
+		and r1, %0, r1
+
+live:	live %1
+		zjmp %:live
+```
+Sure, we did not use so much imagination here, but **451** usually wins against **zork**. In most situations, **451** says `live` last owing to being delayed by 2 cycles due to the functionless `aff` instruction:
+```console
+$> ./corewar zork.cor 451.cor
+Player 2 (451) won
+```
+```console
+$> ./corewar 451.cor zork.cor
+Player 1 (451) won
+```
