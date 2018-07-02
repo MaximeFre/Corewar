@@ -228,3 +228,8 @@ FLAGS
         Corewar does not accept Bitcoin Cash LOL.
         Corewar can only accept 1 -debug argument.
 ```
+`-dump` is a mandatory flag. We decided to illustrate the position of program counters in the memory dump:  
+![-dump](./images/corewar_dump.png)  
+  
+We created a debugger, which developped unintentionally into a visualizer. Its syntax is the same as -dump and will start the visualization from that cycle. **Note**, each time a process is killed, a sound will be played.  
+![-debug](./images/corewar_debug.gif)
