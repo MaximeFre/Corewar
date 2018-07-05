@@ -6,6 +6,7 @@
 25/25
 ***
 ### Challenge
+![corewar_logo](./images/corewar_ansi.png)  
 To create a `corewar` (virtual machine), `asm` (assembler) and `champion` (fighting program).  
 Four-person group project. `corewar` completed by [myself](https://github.com/davhojt) and [ffloris](https://github.com/fedefloris). `asm` completed by [mfiguera](https://github.com/mfigueras11) and [akaseris](https://github.com/akaseris).  
   
@@ -14,9 +15,16 @@ The Corewar project is incredibly conplexed given our collective experience to d
 - [Epitech Project](./images/corewar_en.pdf)
 - [Corewar Cheat Sheet](./images/Corewar_Cheat_Sheet.pdf) (French).
   
-A `champion` is written in `assembly` syntax. A `champion` is compiled by the `asm` (assembler), into a binary file. The compiled `champion` is then loaded into `corewar` (virtual machine) as a process, with other `champion`s.  
+A `champion` is written in `assembly` syntax. A `champion` is compiled by the `asm` (assembler), into a binary file. The compiled `champion` is then loaded into `corewar` (virtual machine) as a process, with other `champion`s; and their bytecode is loaded into virtual circular memory.  
+![-debug](./images/corewar_debug.gif)  
   
-`corewar` will end after *some time* or when all the processes have died. The winner is the last `champion` to have been reported alive.  
+Each `champion` then battles with various strategies to be crowned the winner. `corewar` will end after *some time* or when all the processes have died. The winner is the last `champion` to have been reported alive.  
+  
+Some strategies include:
+- Aiming to execute `live` last.
+- Executing a `fork` to create more processes who work on behalf of the champion.
+- Modify enemy `champion`'s bytecode so that opponent processes work in your favour.
+- Overwrite enemy `champion` bytecode, so they are unable to execute `live`, and are then killed by `corewar`.
 
 An example `champion`:
 ```assembly
