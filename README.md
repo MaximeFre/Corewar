@@ -10,10 +10,11 @@
 To create a `corewar` (virtual machine), `asm` (assembler) and `champion` (fighting program).  
 Four-person group project. `corewar` completed by [myself](https://github.com/davhojt) and [ffloris](https://github.com/fedefloris). `asm` completed by [mfiguera](https://github.com/mfigueras11) and [akaseris](https://github.com/akaseris).  
   
-The Corewar project is incredibly conplexed given our collective experience to date. We considered the following materials:
+Given our collective experience to date, the Corewar project is incredibly complexed. We considered the following materials:
 - [42 Project](./corewar.en.pdf)
 - [Epitech Project](./images/corewar_en.pdf)
 - [Corewar Cheat Sheet](./images/Corewar_Cheat_Sheet.pdf) (French).
+- [Prayer](https://en.wikipedia.org/wiki/Prayer)
   
 A `champion` is written in `assembly` syntax. A `champion` is compiled by the `asm` (assembler), into a binary file. The compiled `champion` is then loaded into `corewar` (virtual machine) as a process, with other `champion`s; and their bytecode is loaded into virtual circular memory.  
 ![-debug](./images/corewar_debug.gif)  
@@ -149,7 +150,7 @@ For `usage`:
 $> ./asm
 Usage: ./asm <sourcefile.s> [dest path]
 ```
-As standard, `asm` must take as an argument a `champion` with a '.s' file extention. If the `champion` is valid, it must comiled and a compiled '.cor' binary must be placed in the same directory and with the same filename as the `assembly` file. For example:
+As standard, `asm` must take as an argument a `champion` with a '.s' file extension. If the `champion` is valid, it must be compiled. The compiled '.cor' binary must be placed in the same directory and with the same filename as the `assembly` file. For example:
 ```console
 $> ls champion/
 451.s
@@ -234,8 +235,8 @@ USAGE
 FLAGS
 -a      Aff (Character with 256 modulo applied).
 -d      Aff (Displayed as decimal).
--x      Aff (Displayed as hexidecimal (lower case)).
--X      Aff (Displayed as hexidecimal (upper case)).
+-x      Aff (Displayed as hexadecimal (lower case)).
+-X      Aff (Displayed as hexadecimal (upper case)).
 
 -n      Player number selection.
         Example: > ./corewar -n 42 tasos.cor -n 7 marti.cor
@@ -255,11 +256,11 @@ FLAGS
 `-dump` is a mandatory flag. We decided to illustrate the position of program counters in the memory dump:  
 ![-dump](./images/corewar_dump.png)  
   
-We created a debugger, which developped unintentionally into a visualizer. Its syntax is the same as -dump and will start the visualization from that cycle. **Note**, each time a process is killed, a sound will be played.  
+We created a debugger, which developed unintentionally into a visualizer. Its syntax is the same as -dump and will start the visualization from that cycle. **Note**, each time a process is killed, a sound will be played.  
 ![-debug](./images/corewar_debug.gif)
   
 ##### champion
-Within the scope of the project, we needed to submit one chammpion. There follows a seperate project, Corewar Champioinship. As such, we did not want to display our best `champion`s bcause we would loose our future competative edge.  
+Within the scope of the project, we needed to submit one champion. There follows a separate project, Corewar Championship. We chose not to display our best `champion`s to retain our competitive edge.  .  
   
 We made a `champion` named **451**. **451** was explicitly designed to beat **zork** in most circumstances.  
 451:
