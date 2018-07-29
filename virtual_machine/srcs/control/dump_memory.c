@@ -6,7 +6,7 @@
 /*   By: dhojt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 21:05:02 by dhojt             #+#    #+#             */
-/*   Updated: 2018/06/22 11:19:07 by dhojt            ###   ########.fr       */
+/*   Updated: 2018/07/29 21:57:38 by dhojt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ static void			print_line(t_vm *vm, char *bytes, int pane, int byte_width)
 
 	j = 0;
 	ft_printf("%s%.8x  %s", B_BLUE, pane, RESET);
-	while (j++ < byte_width && !(k = 0))
+	while (j++ < byte_width)
 	{
-		while (k++ < 8 && !(ps_id = 0))
+		k = 0;
+		while (k++ < 8 && !(ps_id = 0) && ft_printf(BLUE))
 		{
-			ft_printf(BLUE);
 			if (pane >= MEM_SIZE)
 				return ;
 			if ((ps_id = match_pc(vm, pane)))
